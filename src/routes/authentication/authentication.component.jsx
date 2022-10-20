@@ -1,6 +1,8 @@
 import SignUpForm from "../../components/sign-up/sign-up.component";
 import SignInForm from "../../components/sign-in/sign-in.component";
 
+import "./authentication.styles.scss";
+
 // Import Redirect features
 /*
 import { useEffect } from "react";
@@ -28,24 +30,13 @@ const Authentication = () => {
   }, []);/*/
 
   return (
-    <div>
-      <div>
-        <h1>Sign in page</h1>
-
-        <SignInForm />
-
-        {/*
+    <div className="authentication-container">
+      <SignInForm />
+      <SignUpForm />
+      {/*
       <button onClick={signInWithGoogleRedirect}>
         Sign in with Google Redirect
   </button>*/}
-      </div>
-      <div>
-        <SignUpForm />
-        {/*
-      <button onClick={signInWithGoogleRedirect}>
-        Sign in with Google Redirect
-  </button>*/}
-      </div>
     </div>
   );
 };
