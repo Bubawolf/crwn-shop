@@ -1,9 +1,5 @@
-import {
-  signInWithGooglePopup,
-  createUserDocumentFromAuth,
-} from "../../utils/firebase/firebase.utils";
-
 import SignUpForm from "../../components/sign-up/sign-up.component";
+import SignInForm from "../../components/sign-in/sign-in.component";
 
 // Import Redirect features
 /*
@@ -16,7 +12,7 @@ import {
 } from "../../utils/firebase/firebase.utils";
 */
 
-const SignIn = () => {
+const Authentication = () => {
   //Google REdirect solution
   /*useEffect(() => {
     async function fetchData() {
@@ -31,23 +27,27 @@ const SignIn = () => {
     fetchData();
   }, []);/*/
 
-  const logGoogleUser = async () => {
-    const { user } = await signInWithGooglePopup();
-    console.log(user);
-    const userDocRef = await createUserDocumentFromAuth(user);
-  };
-
   return (
     <div>
-      <h1>Sign in page</h1>
-      <button onClick={logGoogleUser}>Sign in with Google Popup</button>
-      <SignUpForm />
-      {/*
+      <div>
+        <h1>Sign in page</h1>
+
+        <SignInForm />
+
+        {/*
       <button onClick={signInWithGoogleRedirect}>
         Sign in with Google Redirect
   </button>*/}
+      </div>
+      <div>
+        <SignUpForm />
+        {/*
+      <button onClick={signInWithGoogleRedirect}>
+        Sign in with Google Redirect
+  </button>*/}
+      </div>
     </div>
   );
 };
 
-export default SignIn;
+export default Authentication;
