@@ -2,6 +2,7 @@ import "./cart-dropdown.styles.scss";
 import Button from "../button/button.component";
 import { useContext } from "react";
 import { ToogleCartContext } from "../../context/toogle-cart.context";
+import { Link } from "react-router-dom";
 import CartItem from "../cart-item/cart-item.component";
 
 const CartDropDown = () => {
@@ -14,7 +15,9 @@ const CartDropDown = () => {
           <CartItem key={item.id} cartItem={item} />
         ))}
       </div>
-      <Button>GO TO CHECK OUT</Button>
+      <Link to="/checkout">
+        <Button>GO TO CHECK OUT</Button>
+      </Link>
     </div>
   );
 };
