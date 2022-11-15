@@ -1,7 +1,12 @@
 import { Fragment, useContext } from "react";
 import { Outlet, Link } from "react-router-dom";
 import { ReactComponent as CrwnLogo } from "../../assets/crown.svg";
-import "./navigation.styles.scss";
+import {
+  NavigationContainer,
+  LogoContainer,
+  NavLinks,
+  NavLink,
+} from "./navigation.styles";
 import CartIcon from "../../components/cart-icon/cart-icon.component";
 import { UserContext } from "../../context/user.context";
 import CartDropDown from "../../components/cart-dropdown/cart-dropdown.component";
@@ -15,28 +20,22 @@ const Navigation = () => {
   const { toggleCart } = useContext(ToogleCartContext);
   return (
     <Fragment>
-      <div className="navigation">
-        <Link className="logo-container" to="/">
+      <NavigationContainer>
+        <LogoContainer to="/">
           <CrwnLogo className="logo" />
-        </Link>
-        <div className="nav-links-container">
-          <Link className="nav-link" to="/shop">
-            SHOP
-          </Link>
+        </LogoContainer>
+        <NavLinks>
+          <NavLink to="/shop">SHOP</NavLink>
 
           {currentUser ? (
-            <span className="nav-link" onClick={signOutUser}>
-              SIGN OUT
-            </span>
+            <NavLink onClick={signOutUser}>SIGN OUT</NavLink>
           ) : (
-            <Link className="nav-link" to="/auth">
-              SIGN IN
-            </Link>
+            <NavLink to="/auth">SIGN IN</NavLink>
           )}
           <CartIcon />
-        </div>
+        </NavLinks>
         {toggleCart && <CartDropDown />}
-      </div>
+      </NavigationContainer>
       <Outlet />
     </Fragment>
   );

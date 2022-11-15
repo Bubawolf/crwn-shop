@@ -7,7 +7,7 @@ import reportWebVitals from "./reportWebVitals";
 import App from "./App";
 import { UserProvider } from "./context/user.context";
 import { ToogleCartProvider } from "./context/toogle-cart.context";
-import { ProductProvider } from "./context/product.context";
+import { CategoriesProvider } from "./context/categories.context";
 
 import "./index.scss";
 
@@ -16,11 +16,11 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <UserProvider>
-        <ProductProvider>
+        <CategoriesProvider>
           <ToogleCartProvider>
             <App />
           </ToogleCartProvider>
-        </ProductProvider>
+        </CategoriesProvider>
       </UserProvider>
     </BrowserRouter>
   </React.StrictMode>
