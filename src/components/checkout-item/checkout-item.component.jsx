@@ -1,4 +1,11 @@
-import "./checkout-item.styles.scss";
+import {
+  Price,
+  Quantity,
+  Name,
+  CheckoutItemContainer,
+  ImageContainer,
+  RemoveButton,
+} from "./checkout-item.styles";
 import { ToogleCartContext } from "../../context/toogle-cart.context";
 import { useContext } from "react";
 
@@ -10,13 +17,13 @@ const CheckoutItem = ({ cartItem }) => {
   const additem = () => addItemToCart(cartItem);
 
   return (
-    <div className="checkout-item-container">
-      <div className="image-container">
+    <CheckoutItemContainer>
+      <ImageContainer>
         <img src={imageUrl} alt={name} />
-      </div>
+      </ImageContainer>
 
-      <span className="name">{name}</span>
-      <span className="quantity">
+      <Name>{name}</Name>
+      <Quantity>
         <div className="arrow" onClick={removeProductFromCart}>
           &#10094;
         </div>
@@ -24,18 +31,13 @@ const CheckoutItem = ({ cartItem }) => {
         <div className="arrow" onClick={additem}>
           &#10095;
         </div>
-      </span>
+      </Quantity>
 
-      <span className="price" className="price">
-        ${price}
-      </span>
-      <div
-        className="remove-button"
-        onClick={() => deleteItemFromCart(cartItem)}
-      >
+      <Price>${price}</Price>
+      <RemoveButton onClick={() => deleteItemFromCart(cartItem)}>
         &#10005;
-      </div>
-    </div>
+      </RemoveButton>
+    </CheckoutItemContainer>
   );
 };
 
